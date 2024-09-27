@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>BUTCOIN</title>
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial;
+  padding: 10px;
+  background: #f1f1f1;
+}
+ 
+/* 头部标题 */
+.header {
+  padding: 30px;
+  text-align: center;
+  background: white;
+}
+ 
+.header h1 {
+  font-size: 50px;
+}
+ 
+/* 导航条 */
+.topnav {
+  overflow: hidden;
+  background-color: #333;
+}
+ 
+/* 导航条链接 */
+.topnav a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+ 
+/* 链接颜色修改 */
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+ 
+/* 创建两列 */
+/* Left column */
+.leftcolumn {   
+  float: left;
+  width:100%;
+}
+{# #}
+{#/* 右侧栏 */#}
+{#.rightcolumn {#}
+{#  float: left;#}
+{#  width:25%;#}
+{#  background-color: #f1f1f1;#}
+{#  padding-left: 10px;#}
+{#}#}
+
+/* 图像部分 */
+.fakeimg {
+  background-color: white;
+  width: 100%;
+  padding: 20px;
+}
+ 
+/* 文章卡片效果 */
+.card {
+  background-color: white;
+  padding: 20px;
+  margin-top: 20px;
+}
+ 
+/* 列后面清除浮动 */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+ 
+/* 底部 */
+.footer {
+  padding: 20px;
+  text-align: center;
+  background: #ddd;
+  margin-top: 20px;
+}
+
+{# #}
+{#/* 响应式布局 - 屏幕尺寸小于 800px 时，两列布局改为上下布局 */#}
+{#@media screen and (max-width: 800px) {#}
+{#  .leftcolumn, .rightcolumn {   #}
+{#    width: 100%;#}
+{#    padding: 0;#}
+{#  }#}
+{#}#}
+{# #}
+{#/* 响应式布局 -屏幕尺寸小于 400px 时，导航等布局改为上下布局 */#}
+{#@media screen and (max-width: 400px) {#}
+{#  .topnav a {#}
+{#    float: none;#}
+{#    width: 100%;#}
+{#  }#}
+{##}
+
+
+}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1><font style="color: green;">比特币最新预测</font></h1>
+  <p>最新消息！</p>
+</div>
+<div class="topnav">
+  <a href="#">总览</a>
+  <a href="#">历史走势</a>
+  <a href="#">技术指标</a>
+  <a href="#" style="float:right"><font style="color: red;">最新...</font></a>
+</div>
+
+<div class="row">
+  <div class="leftcolumn">
+    <div class="card">
+      <h2>比特币走势图</h2>
+      <h5>2024 年 9 月 11日</h5>
+      <div class="fakeimg" style="height:100%;"><img height="100%" width="100%" src="data:image/png;base64, {{ plot_url }}"></div>
+      <p>BTC</p>
+      <p>比特幣是第一個以區塊鏈作為底層技術的加密貨幣，2008年由Satoshi Nakamoto中本聰發表了比特幣論文，2009年創世區塊誕生。2013年美國聯邦政府將數字貨幣合法化，把比特幣定義為合法資產，受《聯邦證券法》監管，時至今日已有許多歐美國家裁定比特幣為合法商品。</p>
+    </div>
+    <div class="card">
+      <h2>今日新闻热点</h2>
+      <h5>2024 年 9 月 11日</h5>
+      <div class="fakeimg" style="height:100%;">
+        <table border="1" style="height: 100%;">
+            {% for key in json %}
+            <tr>                           
+                <td>{{key[0]['mtime']}}</td>
+                <td>{{key[0]['title']}}</td>
+                <td>{{key[0]['digest']}}</td>
+            </tr>
+            {% endfor %}
+        </table>
+      </div>
+      <p>  </p>
+      <p>更多新闻...</p>
+    </div>
+  </div>
+  </div>
+</div>
+
+<div class="footer">
+  <h2>本網站各類資訊報價由路孚特 REFINITIV 提供，台股與外匯部分為即時資訊，國際股市及指數資料為延遲15分鐘資訊。
+    台股資訊來自台灣證券交易所、證券櫃檯買賣中心、台灣期貨交易所。
+    本網站及各資訊源提供者不對資料之正確性與即時性負任何責任。使用本網站資訊服務前，請您詳閱詳細聲明。
+    常年法律顧問：瀛睿律師事務所　簡榮宗律師</h2>
+</div>
+
+</body>
+</html>
